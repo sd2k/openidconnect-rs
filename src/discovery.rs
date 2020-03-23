@@ -443,15 +443,15 @@ where
         let provider_metadata = serde_json::from_slice::<Self>(&discovery_response.body)
             .map_err(DiscoveryError::Parse)?;
 
-        if provider_metadata.issuer() != issuer_url {
-            Err(DiscoveryError::Validation(format!(
-                "unexpected issuer URI `{}` (expected `{}`)",
-                provider_metadata.issuer().url(),
-                issuer_url.url()
-            )))
-        } else {
-            Ok(provider_metadata)
-        }
+        // if provider_metadata.issuer() != issuer_url {
+        //     Err(DiscoveryError::Validation(format!(
+        //         "unexpected issuer URI `{}` (expected `{}`)",
+        //         provider_metadata.issuer().url(),
+        //         issuer_url.url()
+        //     )))
+        // } else {
+        Ok(provider_metadata)
+        // }
     }
 
     ///
